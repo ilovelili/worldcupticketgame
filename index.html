@@ -1,0 +1,47 @@
+<html>
+<header>
+    <meta charset="utf-8">
+    <title>Ticket</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+
+    <!-- font-awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</header>
+
+<body>
+    <form onsubmit="return drawCanvas()">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" />
+        </div>
+        <input type="submit" class="btn btn-default" value="submit" />
+    </form>
+
+    <canvas id="result"></canvas>
+
+    <script>
+        function generateFrame(firstname, lastname) {
+            return `http://w.e-g-g.cn/index.php/home/name_sign/getworldcuptic/fname/${firstname}/sname/${lastname}`;
+        }
+
+        function drawCanvas() {
+            var canvas = document.getElementById("result");
+            var context = canvas.getContext("2d");
+            var imageObj = new Image();
+            imageObj.onload = function () {
+                context.drawImage(imageObj, 10, 10);
+                context.font = "40pt Calibri";
+                context.fillText("My TEXT!", 20, 20);
+            };
+            imageObj.src = "bg.jpg";
+
+            return false;
+        }        
+    </script>
+</body>
+
+</html>
